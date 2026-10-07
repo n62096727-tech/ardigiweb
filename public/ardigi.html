@@ -1,112 +1,653 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Personal Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR Digi Point — Customer Service Point</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            color: #333;
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #f4f8fc;
+        color: #1f2d3d;
+    }
+
+    /* ---------- TOP HEADER BAR ---------- */
+    .top-bar {
+        background: #0a4c8c;
+        color: white;
+        padding: 10px 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .top-bar a {
+        color: #ffd54f;
+        text-decoration: none;
+    }
+
+    /* ---------- MAIN HEADER ---------- */
+    header {
+        background: white;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        border-bottom: 3px solid #d4af37;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+    }
+
+    /* ✅ LOGO IMAGE */
+    .logo-img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        border-radius: 50%;
+        background: white;
+        padding: 2px;
+        box-shadow: 0 2px 10px rgba(212, 175, 55, 0.45);
+        transition: transform 0.3s;
+        flex-shrink: 0;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.08);
+    }
+
+    .logo-text h1 {
+        color: #0a4c8c;
+        font-size: 30px;
+        letter-spacing: 0.5px;
+    }
+
+    .logo-text h1 span {
+        color: #d4af37;
+    }
+
+    .logo-text p {
+        color: #555;
+        font-size: 13px;
+        margin-top: 2px;
+    }
+
+    /* ---------- NAV ---------- */
+    nav a {
+        color: #0a4c8c;
+        text-decoration: none;
+        margin-left: 22px;
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s;
+        padding: 8px 0;
+    }
+
+    nav a:hover {
+        color: #d4af37;
+    }
+
+    /* ---------- SECTIONS SCROLL OFFSET ---------- */
+    #apply, #contact {
+        scroll-margin-top: 100px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+        background: linear-gradient(135deg, #0a4c8c, #1e88e5);
+        color: white;
+        padding: 60px 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .hero-left h2 {
+        font-size: 42px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .hero-left h2 .mal {
+        display: block;
+        font-size: 26px;
+        color: #ffd54f;
+        margin-top: 10px;
+        font-weight: 600;
+    }
+
+    .hero-left p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        opacity: 0.95;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #ffd54f;
+        color: #0a4c8c;
+        padding: 14px 32px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #ffca28;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ---------- SERVICE BOX ---------- */
+    .service-box {
+        background: #0a4c8c;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .service-box h3 {
+        color: #ffd54f;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ffd54f;
+        padding-bottom: 10px;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 20px;
+    }
+
+    .service-grid div {
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 6px 0;
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .service-grid div::before {
+        content: "✔ ";
+        color: #ffd54f;
+    }
+
+    /* ---------- MARQUEE STRIP ---------- */
+    .marquee {
+        background: #1e88e5;
+        color: white;
+        padding: 14px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    /* ---------- INFO STRIP ---------- */
+    .info-strip {
+        background: #e3f2fd;
+        color: #0a4c8c;
+        padding: 14px 30px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 32px;
+        color: #0a4c8c;
+        margin-bottom: 10px;
+    }
+
+    .section-title span {
+        display: block;
+        font-size: 20px;
+        color: #1e88e5;
+        margin-top: 6px;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: #d4af37;
+        margin: 14px auto 0;
+        border-radius: 2px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 22px;
+        margin-top: 40px;
+    }
+
+    .card {
+        background: white;
+        padding: 28px 22px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+        border-top: 4px solid #1e88e5;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 14px 28px rgba(10, 76, 140, 0.2);
+        border-top-color: #d4af37;
+    }
+
+    .card .icon {
+        font-size: 40px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        color: #0a4c8c;
+        margin-bottom: 8px;
+        font-size: 18px;
+    }
+
+    .card p {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* ---------- FORM ---------- */
+    .form-section {
+        background: linear-gradient(135deg, #0a4c8c, #1e88e5);
+        border-radius: 16px;
+        padding: 45px 35px;
+        color: white;
+        margin-top: 40px;
+    }
+
+    .form-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+    }
+
+    .form-section h2 span {
+        display: block;
+        font-size: 18px;
+        color: #ffd54f;
+        margin-top: 6px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .form-grid .full {
+        grid-column: 1 / -1;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 13px 15px;
+        border-radius: 8px;
+        border: none;
+        font-size: 15px;
+        font-family: inherit;
+        outline: none;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 110px;
+    }
+
+    .form-section button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 17px;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+        background: #062b52;
+        color: #c9d6e8;
+        text-align: center;
+        padding: 40px 20px 20px;
+        margin-top: 60px;
+    }
+
+    footer h3 {
+        color: #ffd54f;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    footer .contact-grid {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        margin: 20px 0 30px;
+    }
+
+    footer .contact-grid div {
+        max-width: 280px;
+    }
+
+    footer .contact-grid div p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    footer .contact-grid div strong {
+        color: white;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    footer .copy {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: 15px;
+        font-size: 13px;
+    }
+
+    footer a {
+        color: #ffd54f;
+        text-decoration: none;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 800px) {
+        .hero {
+            grid-template-columns: 1fr;
+            text-align: center;
         }
+
+        .hero-left h2 { font-size: 30px; }
+        .hero-left h2 .mal { font-size: 20px; }
 
         header {
-            background: #222;
-            color: white;
+            flex-direction: column;
+            gap: 12px;
             text-align: center;
-            padding: 60px 20px;
         }
 
-        header h1 {
-            font-size: 45px;
-            margin: 10px;
-        }
+        .logo-img { width: 55px; height: 55px; }
 
-        nav {
-            background: #444;
-            text-align: center;
-            padding: 15px;
-        }
+        nav a { margin: 0 10px; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 20px;
-        }
-
-        section {
-            background: white;
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        h2 {
-            color: #0077cc;
-        }
-
-        .skills span {
-            display: inline-block;
-            background: #0077cc;
-            color: white;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 5px;
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+        .form-grid { grid-template-columns: 1fr; }
+    }
+</style>
 </head>
-
 <body>
 
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span>📞 Mob: 7012285283 &nbsp;|&nbsp; 🏢 Centre ID: KL/TV/DM/4279</span>
+        <span>✉️ <a href="mailto:digipointar@gmail.com">digipointar@gmail.com</a></span>
+    </div>
+
+    <!-- MAIN HEADER -->
     <header>
-        <h1>Your Name</h1>
-        <p>Student | Developer | Designer</p>
+        <a href="ardigi.html" class="logo-area">
+            <img src="image/logo.png" alt="AR Digi Point Logo" class="logo-img">
+            <div class="logo-text">
+                <h1>AR <span>Digi Point</span></h1>
+                <p>Customer Service Point</p>
+            </div>
+        </a>
+        <nav>
+            <a href="services.html">Services</a>
+            <a href="#apply">Apply</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-left">
+            <h2>
+                All Online Services Under One Roof
+                <span class="mal">എല്ലാവിധ ഓൺലൈൻ സേവനങ്ങൾക്കും — AR Digi Point</span>
+            </h2>
+            <p>Your trusted digital service point for Passport, PAN Card, Aadhaar, Bill Payments, Printing, Lamination and more.</p>
+            <a href="#apply" class="btn">Apply Now</a>
+        </div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hello! I am Your Name. I am interested in technology,
-            programming and web development.
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2>My Skills</h2>
-
-        <div class="skills">
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>Python</span>
+        <div class="service-box">
+            <h3>Our Services</h3>
+            <div class="service-grid">
+                <div>Passport</div>
+                <div>Online Applications</div>
+                <div>PAN Card</div>
+                <div>FSSAI Registration</div>
+                <div>Voter ID Card</div>
+                <div>PSC Registration</div>
+                <div>E-Aadhaar</div>
+                <div>MVD Services</div>
+                <div>Bill Payments</div>
+                <div>Birth & Death</div>
+                <div>KSEB Bill</div>
+                <div>Certificate</div>
+                <div>KWA Bill</div>
+                <div>Photostat</div>
+                <div>Print (Colour &amp; B/W)</div>
+                <div>Lamination</div>
+                <div>Spiral Binding</div>
+            </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
+    <!-- MARQUEE STRIP -->
+    <div class="marquee">
+        🌟 എല്ലാവിധ ഓൺലൈൻ സേവനങ്ങൾക്കും – AR Digi Point 🌟
+    </div>
 
-        <p>Email: yourname@email.com</p>
-        <p>Phone: +91 12345 67890</p>
-    </section>
+    <!-- INFO STRIP -->
+    <div class="info-strip">
+        <span>📱 Mob: 7012285283</span>
+        <span>🏢 Centre ID: KL/TV/DM/4279</span>
+        <span>✉️ digipointar@gmail.com</span>
+    </div>
 
-    <footer>
-        <p>© 2026 Your Name</p>
+    <!-- SERVICES CARDS -->
+    <div class="container" id="services">
+        <h2 class="section-title">
+            Popular Services
+            <span>ജനപ്രിയ സേവനങ്ങൾ</span>
+        </h2>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🛂</div>
+                <h3>Passport</h3>
+                <p>New passport application, renewal, and appointment booking assistance.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🆔</div>
+                <h3>PAN Card</h3>
+                <p>Apply for new PAN card or correction in existing PAN details.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🗳️</div>
+                <h3>Voter ID</h3>
+                <p>New voter registration and corrections in existing voter ID card.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>KSEB & KWA Bill</h3>
+                <p>Pay your electricity and water bills instantly at our centre.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📄</div>
+                <h3>Photostat</h3>
+                <p>Fast and clear photocopy of documents, ID proofs, and certificates.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🖨️</div>
+                <h3>Print — Colour &amp; B/W</h3>
+                <p>High-quality colour and black &amp; white printing for all your needs.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🪪</div>
+                <h3>Lamination</h3>
+                <p>Protect your important documents with durable lamination.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Spiral Binding</h3>
+                <p>Neat spiral binding for projects, reports, and study materials.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🍽️</div>
+                <h3>FSSAI Registration</h3>
+                <p>Food license registration and renewal for your business.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📜</div>
+                <h3>Certificates</h3>
+                <p>Birth, death, income, and other government certificates.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🎫</div>
+                <h3>PSC Registration</h3>
+                <p>Kerala PSC one-time registration and profile updates.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🚗</div>
+                <h3>MVD Services</h3>
+                <p>Driving licence, RC, and other motor vehicle department services.</p>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:35px;">
+            <a href="services.html" class="btn">View All Services →</a>
+        </div>
+    </div>
+
+    <!-- APPLICATION FORM -->
+    <div class="container" id="apply">
+        <div class="form-section">
+            <h2>
+                Apply for a Service
+                <span>ഒരു സേവനത്തിന് അപേക്ഷിക്കുക</span>
+            </h2>
+            <form onsubmit="submitForm(event)">
+                <div class="form-grid">
+                    <input type="text" placeholder="Full Name / മുഴുവൻ പേര്" required>
+                    <input type="tel" placeholder="Mobile Number" required>
+                    <input type="email" placeholder="Email Address">
+                    <select required>
+                        <option value="">Select Service / സേവനം തിരഞ്ഞെടുക്കുക</option>
+                        <option>Passport</option>
+                        <option>PAN Card</option>
+                        <option>Voter ID Card</option>
+                        <option>E-Aadhaar</option>
+                        <option>KSEB Bill Payment</option>
+                        <option>KWA Bill Payment</option>
+                        <option>FSSAI Registration</option>
+                        <option>PSC Registration</option>
+                        <option>MVD Services</option>
+                        <option>Birth & Death Certificate</option>
+                        <option>Photostat</option>
+                        <option>Print — Colour</option>
+                        <option>Print — Black & White</option>
+                        <option>Lamination</option>
+                        <option>Spiral Binding</option>
+                        <option>Other</option>
+                    </select>
+                    <div class="full">
+                        <textarea placeholder="Additional details / കൂടുതൽ വിവരങ്ങൾ"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <h3>AR Digi Point — Customer Service Point</h3>
+
+        <div class="contact-grid">
+            <div>
+                <strong>📍 Address</strong>
+                <p>AR Tower, B S Sankaran Nair Road,<br>Vattavila Perukavu,<br>Trivandrum, Kerala - 695573</p>
+            </div>
+            <div>
+                <strong>📞 Phone</strong>
+                <p>7012285283</p>
+            </div>
+            <div>
+                <strong>✉️ Email</strong>
+                <p><a href="mailto:digipointar@gmail.com">digipointar@gmail.com</a></p>
+            </div>
+            <div>
+                <strong>🏢 Centre ID</strong>
+                <p>KL/TV/DM/4279</p>
+            </div>
+        </div>
+
+        <div class="copy">
+            &copy; 2025 AR Digi Point. All Rights Reserved. |
+            എല്ലാവിധ ഓൺലൈൻ സേവനങ്ങൾക്കും – AR Digi Point
+        </div>
     </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const name = event.target.querySelector('input[type="text"]').value;
+            const service = event.target.querySelector('select').value;
+            alert(`Thank you, ${name}!\n\nYour application for "${service}" has been received at AR Digi Point.\nWe will contact you shortly.`);
+            event.target.reset();
+        }
+    </script>
 
 </body>
 </html>
