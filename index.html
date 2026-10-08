@@ -5,29 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AR Digi Point — Customer Service Point</title>
 
-<!-- ✅ Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-        font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        font-family: 'Segoe UI', Arial, sans-serif;
         background: #f4f8fc;
         color: #1f2d3d;
     }
 
-    /* ---------- TOP HEADER BAR ---------- */
+    /* ---------- TOP BAR ---------- */
     .top-bar {
         background: #0a4c8c;
         color: white;
@@ -38,13 +29,9 @@
         font-size: 14px;
         gap: 10px;
     }
+    .top-bar a { color: #ffd54f; text-decoration: none; }
 
-    .top-bar a {
-        color: #ffd54f;
-        text-decoration: none;
-    }
-
-    /* ---------- MAIN HEADER ---------- */
+    /* ---------- HEADER ---------- */
     header {
         background: white;
         padding: 15px 40px;
@@ -58,17 +45,14 @@
         top: 0;
         z-index: 1000;
     }
-
     .logo-area {
         display: flex;
         align-items: center;
         gap: 15px;
         text-decoration: none;
     }
-
     .logo-img {
-        width: 70px;
-        height: 70px;
+        width: 70px; height: 70px;
         object-fit: contain;
         border-radius: 50%;
         background: white;
@@ -77,32 +61,22 @@
         transition: transform 0.3s;
         flex-shrink: 0;
     }
+    .logo-img:hover { transform: scale(1.08); }
 
-    .logo-img:hover {
-        transform: scale(1.08);
-    }
-
-    /* ✅ LOGO FONT — Poppins */
     .logo-text h1 {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
+        font-family: 'Great Vibes', cursive;
+        font-weight: 400;
         color: #0a4c8c;
-        font-size: 30px;
-        letter-spacing: 0.3px;
+        font-size: 42px;
+        letter-spacing: 1px;
         line-height: 1.1;
     }
-
-    .logo-text h1 span {
-        color: #d4af37;
-    }
-
+    .logo-text h1 span { color: #d4af37; }
     .logo-text p {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
+        font-family: 'Segoe UI', Arial, sans-serif;
         color: #555;
         font-size: 13px;
-        margin-top: 3px;
-        letter-spacing: 0.3px;
+        margin-top: 2px;
     }
 
     /* ---------- NAV ---------- */
@@ -115,15 +89,9 @@
         transition: color 0.3s;
         padding: 8px 0;
     }
+    nav a:hover { color: #d4af37; }
 
-    nav a:hover {
-        color: #d4af37;
-    }
-
-    /* ---------- SECTIONS SCROLL OFFSET ---------- */
-    #apply, #contact {
-        scroll-margin-top: 100px;
-    }
+    #apply, #contact { scroll-margin-top: 100px; }
 
     /* ---------- HERO ---------- */
     .hero {
@@ -135,13 +103,11 @@
         gap: 40px;
         align-items: center;
     }
-
     .hero-left h2 {
         font-size: 42px;
         line-height: 1.2;
         margin-bottom: 12px;
     }
-
     .hero-left h2 .mal {
         display: block;
         font-size: 26px;
@@ -149,14 +115,12 @@
         margin-top: 10px;
         font-weight: 600;
     }
-
     .hero-left p {
         font-size: 17px;
         line-height: 1.7;
         margin-bottom: 25px;
         opacity: 0.95;
     }
-
     .btn {
         display: inline-block;
         background: #ffd54f;
@@ -170,7 +134,6 @@
         border: none;
         cursor: pointer;
     }
-
     .btn:hover {
         background: #ffca28;
         transform: translateY(-3px);
@@ -184,7 +147,6 @@
         padding: 30px;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
-
     .service-box h3 {
         color: #ffd54f;
         text-align: center;
@@ -193,13 +155,11 @@
         border-bottom: 2px solid #ffd54f;
         padding-bottom: 10px;
     }
-
     .service-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px 20px;
     }
-
     .service-grid div {
         color: white;
         font-size: 14px;
@@ -207,13 +167,12 @@
         padding: 6px 0;
         border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
     }
-
     .service-grid div::before {
         content: "✔ ";
         color: #ffd54f;
     }
 
-    /* ---------- MARQUEE STRIP ---------- */
+    /* ---------- STRIPS ---------- */
     .marquee {
         background: #1e88e5;
         color: white;
@@ -221,10 +180,7 @@
         text-align: center;
         font-size: 18px;
         font-weight: 600;
-        letter-spacing: 0.5px;
     }
-
-    /* ---------- INFO STRIP ---------- */
     .info-strip {
         background: #e3f2fd;
         color: #0a4c8c;
@@ -243,21 +199,18 @@
         margin: auto;
         padding: 60px 20px;
     }
-
     .section-title {
         text-align: center;
         font-size: 32px;
         color: #0a4c8c;
         margin-bottom: 10px;
     }
-
     .section-title span {
         display: block;
         font-size: 20px;
         color: #1e88e5;
         margin-top: 6px;
     }
-
     .section-title::after {
         content: '';
         display: block;
@@ -267,14 +220,12 @@
         margin: 14px auto 0;
         border-radius: 2px;
     }
-
     .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 22px;
         margin-top: 40px;
     }
-
     .card {
         background: white;
         padding: 28px 22px;
@@ -284,29 +235,14 @@
         border-top: 4px solid #1e88e5;
         transition: 0.3s;
     }
-
     .card:hover {
         transform: translateY(-8px);
         box-shadow: 0 14px 28px rgba(10, 76, 140, 0.2);
         border-top-color: #d4af37;
     }
-
-    .card .icon {
-        font-size: 40px;
-        margin-bottom: 12px;
-    }
-
-    .card h3 {
-        color: #0a4c8c;
-        margin-bottom: 8px;
-        font-size: 18px;
-    }
-
-    .card p {
-        color: #555;
-        font-size: 14px;
-        line-height: 1.6;
-    }
+    .card .icon { font-size: 40px; margin-bottom: 12px; }
+    .card h3 { color: #0a4c8c; margin-bottom: 8px; font-size: 18px; }
+    .card p { color: #555; font-size: 14px; line-height: 1.6; }
 
     /* ---------- FORM ---------- */
     .form-section {
@@ -316,30 +252,23 @@
         color: white;
         margin-top: 40px;
     }
-
     .form-section h2 {
         text-align: center;
         margin-bottom: 30px;
         font-size: 28px;
     }
-
     .form-section h2 span {
         display: block;
         font-size: 18px;
         color: #ffd54f;
         margin-top: 6px;
     }
-
     .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 18px;
     }
-
-    .form-grid .full {
-        grid-column: 1 / -1;
-    }
-
+    .form-grid .full { grid-column: 1 / -1; }
     input, select, textarea {
         width: 100%;
         padding: 13px 15px;
@@ -349,17 +278,33 @@
         font-family: inherit;
         outline: none;
     }
-
-    textarea {
-        resize: vertical;
-        min-height: 110px;
-    }
-
+    textarea { resize: vertical; min-height: 110px; }
     .form-section button {
         width: 100%;
         margin-top: 20px;
         padding: 15px;
         font-size: 17px;
+    }
+    .form-status {
+        display: none;
+        margin-top: 15px;
+        padding: 12px 18px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 15px;
+    }
+    .form-status.success {
+        display: block;
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    .form-status.error {
+        display: block;
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
     }
 
     /* ---------- FOOTER ---------- */
@@ -370,13 +315,11 @@
         padding: 40px 20px 20px;
         margin-top: 60px;
     }
-
     footer h3 {
         color: #ffd54f;
         margin-bottom: 15px;
         font-size: 22px;
     }
-
     footer .contact-grid {
         display: flex;
         justify-content: center;
@@ -384,80 +327,34 @@
         flex-wrap: wrap;
         margin: 20px 0 30px;
     }
-
-    footer .contact-grid div {
-        max-width: 280px;
-    }
-
-    footer .contact-grid div p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
+    footer .contact-grid div { max-width: 280px; }
+    footer .contact-grid div p { font-size: 14px; line-height: 1.6; }
     footer .contact-grid div strong {
         color: white;
         display: block;
         margin-bottom: 5px;
     }
-
     footer .copy {
         border-top: 1px solid rgba(255, 255, 255, 0.15);
         padding-top: 15px;
         font-size: 13px;
     }
-
-    footer a {
-        color: #ffd54f;
-        text-decoration: none;
-    }
+    footer a { color: #ffd54f; text-decoration: none; }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 800px) {
-
-        /* ✅ Fix: Stack top-bar text neatly */
-        .top-bar {
-            flex-direction: column;
-            text-align: center;
-            padding: 10px 15px;
-            font-size: 12.5px;
-            gap: 6px;
-        }
-
-        .hero {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
+        .hero { grid-template-columns: 1fr; text-align: center; }
         .hero-left h2 { font-size: 30px; }
         .hero-left h2 .mal { font-size: 20px; }
-
         header {
             flex-direction: column;
             gap: 12px;
             text-align: center;
-            padding: 15px 20px;
         }
-
-        .logo-img { width: 60px; height: 60px; }
-
-        .logo-text h1 { font-size: 26px; }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        nav a { margin: 0 8px; }
-
+        .logo-img { width: 55px; height: 55px; }
+        .logo-text h1 { font-size: 32px; }
+        nav a { margin: 0 10px; }
         .form-grid { grid-template-columns: 1fr; }
-
-        .info-strip {
-            flex-direction: column;
-            text-align: center;
-            gap: 8px;
-            font-size: 13px;
-        }
     }
 </style>
 </head>
@@ -469,7 +366,7 @@
         <span>✉️ <a href="mailto:digipointar@gmail.com">digipointar@gmail.com</a></span>
     </div>
 
-    <!-- MAIN HEADER -->
+    <!-- HEADER -->
     <header>
         <a href="index.html" class="logo-area">
             <img src="image/logo.png" alt="AR Digi Point Logo" class="logo-img">
@@ -481,7 +378,7 @@
         <nav>
             <a href="services.html">Services</a>
             <a href="#apply">Apply</a>
-            <a href="contact.html">Contact</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
@@ -520,7 +417,7 @@
         </div>
     </section>
 
-    <!-- MARQUEE STRIP -->
+    <!-- MARQUEE -->
     <div class="marquee">
         🌟 എല്ലാവിധ ഓൺലൈൻ സേവനങ്ങൾക്കും – AR Digi Point 🌟
     </div>
@@ -607,19 +504,19 @@
         </div>
     </div>
 
-    <!-- APPLICATION FORM -->
+    <!-- APPLICATION FORM — SAVES TO GOOGLE SHEET + OPENS WHATSAPP -->
     <div class="container" id="apply">
         <div class="form-section">
             <h2>
                 Apply for a Service
                 <span>ഒരു സേവനത്തിന് അപേക്ഷിക്കുക</span>
             </h2>
-            <form onsubmit="submitForm(event)">
+            <form onsubmit="submitEnquiry(event)">
                 <div class="form-grid">
-                    <input type="text" placeholder="Full Name / മുഴുവൻ പേര്" required>
-                    <input type="tel" placeholder="Mobile Number" required>
-                    <input type="email" placeholder="Email Address">
-                    <select required>
+                    <input type="text" id="custName" placeholder="Full Name / മുഴുവൻ പേര്" required>
+                    <input type="tel" id="custPhone" placeholder="Mobile Number" required>
+                    <input type="email" id="custEmail" placeholder="Email Address">
+                    <select id="custService" required>
                         <option value="">Select Service / സേവനം തിരഞ്ഞെടുക്കുക</option>
                         <option>Passport</option>
                         <option>PAN Card</option>
@@ -639,10 +536,11 @@
                         <option>Other</option>
                     </select>
                     <div class="full">
-                        <textarea placeholder="Additional details / കൂടുതൽ വിവരങ്ങൾ"></textarea>
+                        <textarea id="custDetails" placeholder="Additional details / കൂടുതൽ വിവരങ്ങൾ"></textarea>
                     </div>
                 </div>
-                <button type="submit" class="btn">Submit Application</button>
+                <button type="submit" class="btn">📱 Send via WhatsApp</button>
+                <div id="formStatus" class="form-status"></div>
             </form>
         </div>
     </div>
@@ -677,12 +575,66 @@
     </footer>
 
     <script>
-        function submitForm(event) {
+        // ⚙️ YOUR GOOGLE APPS SCRIPT URL
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwDjsKXY4mvNQiIu3aAKNRtWSFThJJjzGvqJANkZ5Sf7LcpEYVMkmEdwA_w50QLz8B_/exec";
+
+        // ⚙️ YOUR WHATSAPP NUMBER (country code + number, no + or spaces)
+        const WHATSAPP_NUMBER = "917012285283";
+
+        async function submitEnquiry(event) {
             event.preventDefault();
-            const name = event.target.querySelector('input[type="text"]').value;
-            const service = event.target.querySelector('select').value;
-            alert(`Thank you, ${name}!\n\nYour application for "${service}" has been received at AR Digi Point.\nWe will contact you shortly.`);
-            event.target.reset();
+
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim() || "—";
+            const service = document.getElementById('custService').value;
+            const details = document.getElementById('custDetails').value.trim() || "—";
+
+            const statusBox = document.getElementById('formStatus');
+            statusBox.className = 'form-status';
+            statusBox.textContent = '';
+
+            const customerData = { name, phone, email, service, details };
+
+            // 1️⃣ SAVE TO GOOGLE SHEET
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(customerData)
+                });
+                console.log("✅ Saved to Google Sheet");
+            } catch (err) {
+                console.error("❌ Sheet save failed:", err);
+            }
+
+            // 2️⃣ OPEN WHATSAPP with pre-filled message
+            const message =
+`🌟 *NEW ENQUIRY — AR Digi Point* 🌟
+
+👤 *Name:* ${name}
+📞 *Mobile:* ${phone}
+✉️ *Email:* ${email}
+🛠️ *Service:* ${service}
+
+📝 *Details:*
+${details}
+
+_Sent from AR Digi Point website_`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+            window.open(url, "_blank");
+
+            // 3️⃣ SHOW SUCCESS MESSAGE
+            statusBox.className = 'form-status success';
+            statusBox.textContent = '✅ Your enquiry has been received! We will contact you soon.';
+
+            // 4️⃣ RESET FORM AFTER 2 SECONDS
+            setTimeout(() => {
+                event.target.reset();
+                statusBox.className = 'form-status';
+            }, 4000);
         }
     </script>
 
