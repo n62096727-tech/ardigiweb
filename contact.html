@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,19 +64,17 @@
     }
     .logo-img:hover { transform: scale(1.08); }
 
-  .logo-text h1 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
-    color: #0a4c8c;
-    font-size: 28px;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    text-transform: uppercase;
-}
+    .logo-text h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        color: #0a4c8c;
+        font-size: 28px;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+    .logo-text h1 span { color: #d4af37; }
 
-.logo-text h1 span {
-    color: #d4af37;
-}
     .logo-text p {
         font-family: 'Segoe UI', Arial, sans-serif;
         color: #555;
@@ -85,6 +83,10 @@
     }
 
     /* ---------- NAV ---------- */
+    nav {
+        display: flex;
+        align-items: center;
+    }
     nav a {
         color: #0a4c8c;
         text-decoration: none;
@@ -96,6 +98,35 @@
     }
     nav a:hover,
     nav a.active { color: #d4af37; }
+
+    /* ---------- SOCIAL ICONS (Header) ---------- */
+    .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 22px;
+    }
+    .social-icons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s;
+        font-size: 15px;
+        color: white;
+    }
+    .social-icons a.whatsapp { background: #25d366; }
+    .social-icons a.instagram {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+    .social-icons a.facebook { background: #1877f2; }
+    .social-icons a:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
 
     /* ---------- PAGE BANNER ---------- */
     .page-banner {
@@ -249,7 +280,7 @@
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     }
 
-    /* ---------- WHATSAPP FLOATING BUTTON ---------- */
+    /* ---------- FLOATING WHATSAPP BUTTON ---------- */
     .whatsapp-btn {
         position: fixed;
         bottom: 25px;
@@ -267,10 +298,17 @@
         box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
         transition: 0.3s;
         z-index: 999;
+        animation: pulse 2s infinite;
     }
     .whatsapp-btn:hover {
         transform: scale(1.1);
         box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.7); }
+        70% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5), 0 0 0 20px rgba(37, 211, 102, 0); }
+        100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0); }
     }
 
     /* ---------- FOOTER ---------- */
@@ -300,6 +338,38 @@
         display: block;
         margin-bottom: 5px;
     }
+
+    /* ---------- SOCIAL BUTTONS (Footer) ---------- */
+    .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 25px 0 20px;
+    }
+    .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        color: white;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .footer-social a.whatsapp { background: #25d366; }
+    .footer-social a.instagram {
+        background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+    }
+    .footer-social a.facebook { background: #1877f2; }
+    .footer-social a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
     footer .copy {
         border-top: 1px solid rgba(255, 255, 255, 0.15);
         padding-top: 15px;
@@ -315,8 +385,20 @@
             text-align: center;
         }
         .logo-img { width: 55px; height: 55px; }
-        .logo-text h1 { font-size: 32px; }
+        .logo-text h1 { font-size: 22px; }
+
+        nav {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         nav a { margin: 0 8px; font-size: 14px; }
+
+        .social-icons {
+            margin-left: 0;
+            margin-top: 8px;
+            justify-content: center;
+        }
+
         .page-banner h2 { font-size: 30px; }
         .grid-2 { grid-template-columns: 1fr; }
         .map-box iframe { height: 300px; }
@@ -344,6 +426,22 @@
             <a href="services.html">Services</a>
             <a href="index.html#apply">Apply</a>
             <a href="contact.html" class="active">Contact</a>
+
+            <!-- ✅ SOCIAL ICONS -->
+            <div class="social-icons">
+                <a href="https://whatsapp.com/channel/0029VbEEChh9MF94c8y4Qy0M"
+                   target="_blank"
+                   class="whatsapp"
+                   title="WhatsApp Channel">💬</a>
+                <a href="https://instagram.com/ardigipoint?psln=MWptM205YmVlc2d1dQ%3D%3D"
+                   target="_blank"
+                   class="instagram"
+                   title="Instagram">📷</a>
+                <a href="https://www.facebook.com/share/18bZCqcVKp/"
+                   target="_blank"
+                   class="facebook"
+                   title="Facebook">f</a>
+            </div>
         </nav>
     </header>
 
@@ -406,7 +504,7 @@
         </div>
     </div>
 
-    <!-- WHATSAPP FLOATING BUTTON -->
+    <!-- FLOATING WHATSAPP BUTTON -->
     <a href="https://wa.me/917012285283?text=Hello%20AR%20Digi%20Point%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
        class="whatsapp-btn"
        target="_blank"
@@ -433,6 +531,25 @@
                 <strong>🏢 Centre ID</strong>
                 <p>KL/TV/DM/4279</p>
             </div>
+        </div>
+
+        <!-- ✅ SOCIAL MEDIA BUTTONS -->
+        <div class="footer-social">
+            <a href="https://whatsapp.com/channel/0029VbEEChh9MF94c8y4Qy0M"
+               target="_blank"
+               class="whatsapp">
+                💬 WhatsApp Channel
+            </a>
+            <a href="https://instagram.com/ardigipoint?psln=MWptM205YmVlc2d1dQ%3D%3D"
+               target="_blank"
+               class="instagram">
+                📷 Instagram
+            </a>
+            <a href="https://www.facebook.com/share/18bZCqcVKp/"
+               target="_blank"
+               class="facebook">
+                📘 Facebook
+            </a>
         </div>
 
         <div class="copy">
